@@ -12,7 +12,7 @@ from lib.gui.entry_page import EntryPage
 class Root(Tk):
   def __init__(self, dic='./dics/sowpods.txt'):
     Tk.__init__(self)
-    self.title('PyScrabble')
+    self.title('Scrabble')
     self.config(bg='azure')
     self.protocol('WM_DELETE_WINDOW', self.quit_game)
 
@@ -45,7 +45,7 @@ class Root(Tk):
     about_m.add_command(label='License', underline=0, command=self.render_license_page)
 
     top.add_cascade(label='Game', menu=game_m, underline=0)
-    top.add_cascade(label='About', menu=about_m, underline=0)
+    # top.add_cascade(label='About', menu=about_m, underline=0)
 
   def draw_container(self):
     self.container = Frame(self, bg='azure')

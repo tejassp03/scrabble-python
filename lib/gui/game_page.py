@@ -219,9 +219,9 @@ class GamePage(Frame):
     info_frame = Frame(self, bg='azure')
     info_frame.pack(side=LEFT, fill=BOTH)
 
-    self.sav = Button(info_frame, text='Save Game')
-    self.sav.config(command=self.save_game)
-    self.sav.pack(side=TOP, pady=50)
+    # self.sav = Button(info_frame, text='Save Game')
+    # self.sav.config(command=self.save_game)
+    # self.sav.pack(side=TOP, pady=50)
 
     cont_f = Frame(info_frame, bg='azure')
     cont_f.pack(side=TOP, pady=40, fill=X)
@@ -499,7 +499,7 @@ class GamePage(Frame):
   def disable_board(self):
     self.sub.config(state=DISABLED)
     self.pas.config(state=DISABLED)
-    self.sav.config(state=DISABLED)
+    # self.sav.config(state=DISABLED)
 
     if self.lan_mode and self.chal_mode:
       self.chal.config(state=DISABLED)
@@ -511,7 +511,7 @@ class GamePage(Frame):
   def enable_board(self):
     self.sub.config(state=NORMAL)
     self.pas.config(state=NORMAL)
-    self.sav.config(state=NORMAL)
+    # self.sav.config(state=NORMAL)
 
     if self.lan_mode and self.chal_mode:
       self.chal.config(state=NORMAL)
@@ -1179,6 +1179,7 @@ class GamePage(Frame):
     if not os.path.exists('./saves'):
       os.mkdir('./saves')
 
+    global filename 
     filename = asksaveasfilename(initialdir='saves', defaultextension='.pickle')
 
     if filename:
@@ -1199,8 +1200,8 @@ class GamePage(Frame):
       data['minutes'] = self.minutes
       data['turns'] = self.turns
 
-      file = open(filename, 'wb')
-      pickle.dump(data, file)
+      with open(filename, 'wb') as file:
+        pickle.dump(data, file)
 
   # Necessary for preventing lag in lan games
   def destroy(self):

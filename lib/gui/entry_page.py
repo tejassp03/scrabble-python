@@ -24,22 +24,22 @@ class EntryPage(Frame):
     self.draw()
 
   def draw(self):
-    Label(self, text='Welcome to PyScrabble', font=('times', 40, 'italic'), bg='azure', pady=100).pack(side=TOP)
+    Label(self, text='Welcome to Scrabble', font=('times', 40, 'italic'), bg='azure', pady=100).pack(side=TOP)
 
     f = Frame(self, bg='azure')
     f.pack(side=TOP)
 
-    Button(f, text='Start Computer Game', command=self.start_computer_game).pack(side=LEFT, padx=10)
-    Button(f, text='Start Game on Computer', command=self.start_normal_game).pack(side=LEFT, padx=10)
-    Button(f, text='Start Game on LAN', command=self.start_lan_game).pack(side=LEFT, padx=10)
+    Button(f, text='Start Computer Game', command=self.start_computer_game).pack(side=TOP, padx=10,pady=10)
+    # Button(f, text='Start Game on Computer', command=self.start_normal_game).pack(side=LEFT, padx=10)
+    # Button(f, text='Start Game on LAN', command=self.start_lan_game).pack(side=LEFT, padx=10)
 
     fb = Frame(self, bg='azure')
     fb.pack(side=TOP)
 
-    Button(fb, text='Join a Game (Auto)', command=self.join_game).pack(side=LEFT, pady=20, padx=10)
-    Button(fb, text='Join a Game (IP)', command=self.join_with_ip).pack(side=LEFT, pady=20, padx=10)
+    # Button(fb, text='Join a Game (Auto)', command=self.join_game).pack(side=LEFT, pady=20, padx=10)
+    # Button(fb, text='Join a Game (IP)', command=self.join_with_ip).pack(side=LEFT, pady=20, padx=10)
 
-    Button(self, text='Load Game', command=self.load_game).pack(side=TOP)
+    # Button(self, text='Load Game', command=self.load_game).pack(side=TOP)
 
 
   def start_computer_game(self):
